@@ -8,15 +8,6 @@ function App() {
   const [newMoves, setNewMoves] = useState([]);
 
   const calcFunc = (x, y, z) => {
-    console.log("button pressed ", x, y, z);
-    console.log(
-      Number.isInteger(x),
-      x > 0,
-      Number.isInteger(y),
-      y > 0,
-      Number.isInteger(z),
-      z > 0,
-    );
     if (
       Number.isInteger(x) === false &&
       x > 0 &&
@@ -39,7 +30,7 @@ function App() {
         const bucketY = new Bucket(y);
         const currentMoves = [];
         if (Math.abs(x - z) > Math.abs(y - z)) {
-          console.log("start with y");
+          //console.log("start with y");
 
           while (
             bucketX.checkCurrentCapacity() !== z &&
@@ -72,7 +63,7 @@ function App() {
             //debugger;
           }
         } else {
-          console.log("start with x");
+          //console.log("start with x");
 
           while (
             bucketX.checkCurrentCapacity() !== z &&

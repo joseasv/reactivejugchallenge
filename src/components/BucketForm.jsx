@@ -2,9 +2,9 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 const BucketForm = ({ calcFunc }) => {
-  const [newX, setNewX] = useState(0);
-  const [newY, setNewY] = useState(0);
-  const [newZ, setNewZ] = useState(0);
+  const [newX, setNewX] = useState("");
+  const [newY, setNewY] = useState("");
+  const [newZ, setNewZ] = useState("");
 
   return (
     <div>
@@ -15,25 +15,31 @@ const BucketForm = ({ calcFunc }) => {
         }}
       >
         <div>
-          X:
-          <input
-            value={newX}
-            onChange={(event) => setNewX(event.target.value)}
-          />
+          <label>
+            X:
+            <input
+              value={newX}
+              onChange={(event) => setNewX(event.target.value)}
+            />
+          </label>
         </div>
         <div>
-          Y:
-          <input
-            value={newY}
-            onChange={(event) => setNewY(event.target.value)}
-          />
+          <label>
+            Y:
+            <input
+              value={newY}
+              onChange={(event) => setNewY(event.target.value)}
+            />
+          </label>
         </div>
         <div>
-          Z:
-          <input
-            value={newZ}
-            onChange={(event) => setNewZ(event.target.value)}
-          />
+          <label>
+            Z:
+            <input
+              value={newZ}
+              onChange={(event) => setNewZ(event.target.value)}
+            />
+          </label>
         </div>
         <div>
           <button type="submit"> Calculate</button>
