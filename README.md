@@ -49,7 +49,7 @@ Lastly, to check if the given inputs are solvable, I subtract the biggest capaci
 
 The React frontend only have four components in addition with the App component. The components that have state are the BucketForm component, that controls the state of the three inputs, and the App state that controls the moves array. This array will store the resulting operations of the algorithm. Also, this array will end up in the SolutionTable component and, each element of the array, as a SolutionRow component. The algorithm is implemented in the App component and passed to the BucketForm component. When the algorithm finishes, the moves array state of the App component is updated and the passed to the SolutionTable component.
 
-### Unit testing
+### Unit tests
 
 The testing framework used is the Testing Library. The tests are found in the App.test.jsx file in the src folder. There are five tests:
 - The first one test a solvable set of inputs
