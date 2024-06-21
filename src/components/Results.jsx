@@ -4,11 +4,21 @@ const Results = ({ moves }) => {
   } else {
     return (
       <div>
-        <ul>
+        <table>
+          <tr>
+            <td>Bucket X</td>
+            <td>Bucket Y</td>
+            <td>Explanation</td>
+          </tr>
+
           {moves.map((move, i) => (
-            <li key={i}>{move}</li>
+            <tr key={i}>
+              <td>{move.bucketX}</td>
+              <td>{move.bucketY}</td>
+              <td>{move.description}</td>
+            </tr>
           ))}
-        </ul>
+        </table>
       </div>
     );
   }

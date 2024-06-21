@@ -47,13 +47,25 @@ function App() {
           ) {
             if (bucketY.checkCurrentCapacity() === 0) {
               bucketY.fill();
-              currentMoves.push("Fill Bucket Y");
+              currentMoves.push({
+                description: "Fill Bucket Y",
+                bucketX: bucketX.checkCurrentCapacity(),
+                bucketY: bucketY.checkCurrentCapacity(),
+              });
             } else {
               bucketY.transfer(bucketX);
-              currentMoves.push("Transfer from Bucket Y to Bucket X");
+              currentMoves.push({
+                description: "Transfer from Bucket Y to Bucket X",
+                bucketX: bucketX.checkCurrentCapacity(),
+                bucketY: bucketY.checkCurrentCapacity(),
+              });
               if (bucketX.checkIsFull()) {
                 bucketX.empty();
-                currentMoves.push("Empty Bucket X");
+                currentMoves.push({
+                  description: "Empty Bucket X",
+                  bucketX: bucketX.checkCurrentCapacity(),
+                  bucketY: bucketY.checkCurrentCapacity(),
+                });
               }
             }
 
@@ -68,13 +80,25 @@ function App() {
           ) {
             if (bucketX.checkCurrentCapacity() === 0) {
               bucketX.fill();
-              currentMoves.push("Fill Bucket X");
+              currentMoves.push({
+                description: "Fill Bucket X",
+                bucketX: bucketX.checkCurrentCapacity(),
+                bucketY: bucketY.checkCurrentCapacity(),
+              });
             } else {
               bucketX.transfer(bucketY);
-              currentMoves.push("Transfer from Bucket X to Bucket Y");
+              currentMoves.push({
+                description: "Transfer from Bucket X to Bucket Y",
+                bucketX: bucketX.checkCurrentCapacity(),
+                bucketY: bucketY.checkCurrentCapacity(),
+              });
               if (bucketY.checkIsFull()) {
                 bucketY.empty();
-                currentMoves.push("Empty Bucket Y");
+                currentMoves.push({
+                  description: "Empty Bucket Y",
+                  bucketX: bucketX.checkCurrentCapacity(),
+                  bucketY: bucketY.checkCurrentCapacity(),
+                });
               }
             }
 
