@@ -13,7 +13,8 @@ The live application can be found here https://reactivejugchallenge.onrender.com
 1. Clone the repo
 2. Run `npm install`
 3. Run `npm run dev` to test with the dev server
-4. (Optional) Run `npm run build` to create a production build in the dist folder
+4. (Optional) Run `npm run test` to run tests
+5. (Optional) Run `npm run build` to create a production build in the dist folder
 
 ## Application description
 
