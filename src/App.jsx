@@ -37,12 +37,15 @@ function App() {
         const bucketX = new Bucket(x);
         const bucketY = new Bucket(y);
         const currentMoves = [];
+        const maxIterations = 1500;
+
         if (Math.abs(x - z) > Math.abs(y - z)) {
           //console.log("start with y");
 
           while (
             bucketX.checkCurrentCapacity() !== z &&
-            bucketY.checkCurrentCapacity() !== z
+            bucketY.checkCurrentCapacity() !== z &&
+            currentMoves.length < maxIterations
           ) {
             if (bucketY.checkCurrentCapacity() === 0) {
               bucketY.fill();
@@ -75,7 +78,8 @@ function App() {
 
           while (
             bucketX.checkCurrentCapacity() !== z &&
-            bucketY.checkCurrentCapacity() !== z
+            bucketY.checkCurrentCapacity() !== z &&
+            currentMoves.length < maxIterations
           ) {
             if (bucketX.checkCurrentCapacity() === 0) {
               bucketX.fill();
@@ -104,7 +108,13 @@ function App() {
             //debugger;
           }
         }
-        setNewMoves(currentMoves);
+
+        if (currentMoves.length >= maxIterations) {
+          console.log(`MAX ITERATIONS (${maxIterations}) REACHED`);
+          setNewMoves([-1]);
+        } else {
+          setNewMoves(currentMoves);
+        }
       }
     } else {
       setNewMoves([-1]);
