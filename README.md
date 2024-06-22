@@ -43,7 +43,7 @@ For the actual algorithm, I first create two Bucket objects. I devised a simple 
 
 The bucket to fill first will be the one that has the minor difference (absolute value) between their max capacity and the target measure.
 
-Lastly, to check if the given inputs are solvable, I subtract the biggest capacity with the smaller capacity. If the result is lower than the target measure, there will be no way to eventually get the target measure in either bucket. It will always be a number of gallons more or less, but never the target measure.
+Lastly, to check if the given inputs are solvable, I first check if one of the two is divisible by the Z value. If that's true, I then check if both X and Y are greater than Z or both X and Y are less than Z. If both values are greater or less than Z, there's no way that a bucket will end with Z gallons. Also, if both X and Y are not divisible by Z, there will be also no way to have a Z value in either bucket.
 
 ### React frontend
 

@@ -19,13 +19,17 @@ function App() {
       x = Number(x);
       y = Number(y);
       z = Number(z);
-      const maxBucket = Math.max(x, y);
-      const minBucket = Math.min(x, y);
 
-      if (maxBucket - minBucket < z) {
+      if (
+        (z % x !== 0 && z % y !== 0) ||
+        (x > z && y > z) ||
+        (x < z && y < z)
+      ) {
         console.log("No solution");
         setNewMoves([]);
       } else {
+        console.log("Doing calculations");
+
         const bucketX = new Bucket(x);
         const bucketY = new Bucket(y);
         const currentMoves = [];
