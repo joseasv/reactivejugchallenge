@@ -1,14 +1,18 @@
 import SolutionTable from "./SolutionTable";
 
 const Results = ({ moves }) => {
-  if (moves.length === 0) {
-    return <div>No solution</div>;
+  if (moves === null) {
+    return <div></div>;
   } else {
-    return (
-      <div>
-        <SolutionTable moves={moves} />
-      </div>
-    );
+    if (moves[0] === -1) {
+      return <div>No Solution</div>;
+    } else {
+      return (
+        <div>
+          <SolutionTable moves={moves} />
+        </div>
+      );
+    }
   }
 };
 

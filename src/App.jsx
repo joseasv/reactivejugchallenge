@@ -5,7 +5,11 @@ import "./App.css";
 import BucketForm from "./components/BucketForm";
 
 function App() {
-  const [newMoves, setNewMoves] = useState([]);
+  const [newMoves, setNewMoves] = useState(null);
+
+  const resetFunc = () => {
+    setNewMoves(null);
+  };
 
   const calcFunc = (x, y, z) => {
     if (
@@ -26,7 +30,7 @@ function App() {
         (x < z && y < z)
       ) {
         console.log("No solution");
-        setNewMoves([]);
+        setNewMoves([-1]);
       } else {
         console.log("Doing calculations");
 
@@ -103,13 +107,13 @@ function App() {
         setNewMoves(currentMoves);
       }
     } else {
-      setNewMoves([]);
+      setNewMoves([-1]);
     }
   };
 
   return (
     <>
-      <BucketForm calcFunc={calcFunc} />
+      <BucketForm calcFunc={calcFunc} resetFunc={resetFunc} />
       <Results moves={newMoves} />
     </>
   );
