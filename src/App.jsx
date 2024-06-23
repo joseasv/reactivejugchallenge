@@ -61,7 +61,11 @@ function App() {
                 bucketX: bucketX.checkCurrentCapacity(),
                 bucketY: bucketY.checkCurrentCapacity(),
               });
-              if (bucketX.checkIsFull()) {
+              if (
+                bucketX.checkIsFull() &&
+                bucketX.checkCurrentCapacity() !== z &&
+                bucketY.checkCurrentCapacity() !== z
+              ) {
                 bucketX.empty();
                 currentMoves.push({
                   description: "Empty Bucket X",
@@ -95,7 +99,12 @@ function App() {
                 bucketX: bucketX.checkCurrentCapacity(),
                 bucketY: bucketY.checkCurrentCapacity(),
               });
-              if (bucketY.checkIsFull()) {
+
+              if (
+                bucketY.checkIsFull() &&
+                bucketX.checkCurrentCapacity() !== z &&
+                bucketY.checkCurrentCapacity() !== z
+              ) {
                 bucketY.empty();
                 currentMoves.push({
                   description: "Empty Bucket Y",
